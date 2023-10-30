@@ -3,7 +3,7 @@ import os
 import qrcode
 import sys
 
-import costants
+import constants
 from transformer import file_to_base64, enigma
 
 
@@ -15,7 +15,7 @@ def file_to_qrcode(input_file, key):
     :param key: to encrypt the message
     """
     encoded_content = file_to_base64(input_file)
-    encrypted_content = enigma(encoded_content, key, costants.ENCRYPT, os.path.dirname(input_file))
+    encrypted_content = enigma(encoded_content, key, constants.ENCRYPT, os.path.dirname(input_file))
 
     # Define the maximum characters per QR code (this is a rough estimate, actual capacity might vary)
     max_chars = 1800
@@ -32,6 +32,6 @@ if __name__ == '__main__':
         sys.exit(1)
 
     input_file = sys.argv[1]
-    key = sys.argv[2] if len(sys.argv) > 2 else costants.KEY
+    key = sys.argv[2] if len(sys.argv) > 2 else constants.KEY
 
     file_to_qrcode(input_file, key)
