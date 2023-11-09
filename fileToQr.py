@@ -18,12 +18,12 @@ def file_to_qrcode(input_file, key):
     encrypted_content = enigma(encoded_content, key, constants.ENCRYPT, os.path.dirname(input_file))
 
     # Define the maximum characters per QR code (this is a rough estimate, actual capacity might vary)
-    max_chars = 1800
-    chunks = [encrypted_content[i:i + max_chars] for i in range(0, len(encoded_content), max_chars)]
-
-    for index, chunk in enumerate(chunks):
-        img = qrcode.make(chunk)
-        img.save(os.path.join(os.path.join(os.path.dirname(input_file), f'qrcode_{index}.png')))
+    # max_chars = 1800
+    # chunks = [encrypted_content[i:i + max_chars] for i in range(0, len(encoded_content), max_chars)]
+    #
+    # for index, chunk in enumerate(chunks):
+    #     img = qrcode.make(chunk)
+    #     img.save(os.path.join(os.path.join(os.path.dirname(input_file), f'qrcode_{index}.png')))
 
 
 if __name__ == '__main__':

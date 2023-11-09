@@ -2,6 +2,14 @@ import base64
 import glob
 import os
 import constants
+import re
+
+
+def sort_key(s):
+    """
+    Sort strings containing numbers in a way that humans expect.
+    """
+    return [int(text) if text.isdigit() else text.lower() for text in re.split('([0-9]+)', s)]
 
 
 def find_qrcodes_in_directory(directory):
